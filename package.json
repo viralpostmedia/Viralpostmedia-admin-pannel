@@ -1,0 +1,24 @@
+{
+  "name": "vpm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix vpm_frontend\" \"npm run dev --prefix vpm_backend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viralpostmedia/Viralpostmedia-admin-pannel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/viralpostmedia/Viralpostmedia-admin-pannel/issues"
+  },
+  "homepage": "https://github.com/viralpostmedia/Viralpostmedia-admin-pannel#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
