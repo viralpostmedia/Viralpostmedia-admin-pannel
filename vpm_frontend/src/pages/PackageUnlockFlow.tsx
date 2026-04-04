@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Section } from '../components/layout/Section';
 import { CheckCircle2, Lock, Unlock, ArrowLeft, Mail, Phone, User, MonitorSpeaker, Loader2 } from 'lucide-react';
 
 const PACKAGES_DATA: Record<string, any> = {
