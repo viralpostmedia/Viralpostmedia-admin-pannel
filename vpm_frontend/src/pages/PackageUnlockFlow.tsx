@@ -104,7 +104,8 @@ export const PackageUnlockFlow: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      await fetch('http://localhost:5000/api/forms/packages', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      await fetch(`${API_URL}/api/forms/packages`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fullName, email, phoneNumber: phone, howDidYouHearAboutUs }),
