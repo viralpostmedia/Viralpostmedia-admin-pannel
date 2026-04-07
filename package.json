@@ -19,7 +19,7 @@
     "url": "https://github.com/viralpostmedia/Viralpostmedia-admin-pannel/issues"
   },
   "homepage": "https://github.com/viralpostmedia/Viralpostmedia-admin-pannel#readme",
-  "devDependencies": {
+  "dependencies": {
     "concurrently": "^9.2.1"
   }
 }
