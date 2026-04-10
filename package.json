@@ -22,7 +22,7 @@
   "dependencies": {
     "concurrently": "^9.2.1"
   },
-  "dependencies": {
+  "devDependencies": {
     "typescript": "^6.0.2"
   }
 }
