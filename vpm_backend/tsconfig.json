@@ -5,9 +5,9 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node"]  // Add this line
   },
-  "include": ["src/**/*"]
+  "include": ["src/*/"]
 }
