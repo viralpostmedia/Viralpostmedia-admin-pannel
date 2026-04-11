@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix vpm_frontend\" \"npm run dev --prefix vpm_backend\"",
     
-  "build": "npm install --prefix vpm_backend && npm install --prefix vpm_frontend && npm run build --prefix vpm_backend && npm run build --prefix vpm_frontend"
+  "build": "cd vpm_backend && npm install && npm install --save-dev @types/node @types/express @types/mongoose @types/cors && npx tsc && cd ../vpm_frontend && npm install && npm run build"
 
   },
   "repository": {
