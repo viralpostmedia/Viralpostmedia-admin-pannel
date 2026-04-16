@@ -23,6 +23,8 @@ export const Navbar: React.FC = () => {
     };
   }, []);
 
+  const isDarkText = isScrolled || ['#/services', '#/about', '#/proposal', '#/work', '#/packages', '#/digital-marketing', '#/web-solutions', '#/branding', '#/influence-marketing'].includes(currentHash) || currentHash.startsWith('#/package-unlock/');
+
   const isActive = (hash: string) => {
     // Treat empty hash or #hero as home active
     if ((hash === '' || hash === '#hero') && (currentHash === '' || currentHash === '#hero')) return true;
@@ -37,7 +39,7 @@ export const Navbar: React.FC = () => {
         <a href="/" className="flex items-center" aria-label="Home">
           <VpmLogo 
             className={`w-auto transition-all duration-500 hover:scale-105 ${isScrolled ? 'h-16' : 'h-24 md:h-28'}`} 
-            textColor={(isScrolled || ['#/services', '#/about', '#/proposal', '#/work', '#/packages', '#/digital-marketing', '#/web-solutions', '#/branding', '#/influence-marketing'].includes(currentHash) || currentHash.startsWith('#/package-unlock/')) ? '#0f172a' : '#ffffff'} 
+            textColor={isDarkText ? '#0f172a' : '#ffffff'} 
           />
         </a>
         
@@ -45,7 +47,7 @@ export const Navbar: React.FC = () => {
           <a 
             href="#hero" 
             className={`text-lg font-semibold transition-all hover:text-purple-400 group relative ${
-              isScrolled ? 'text-slate-800' : 'text-gray-100'
+              isDarkText ? 'text-slate-800' : 'text-gray-100'
             } ${isActive('#hero') ? 'text-purple-500 underline decoration-purple-500 decoration-2 underline-offset-8' : ''}`}
           >
             Home
@@ -53,7 +55,7 @@ export const Navbar: React.FC = () => {
           <a 
             href="#/services" 
             className={`text-lg font-semibold transition-all hover:text-purple-400 ${
-              isScrolled ? 'text-slate-800' : 'text-gray-100'
+              isDarkText ? 'text-slate-800' : 'text-gray-100'
             } ${isActive('#/services') ? 'text-purple-500 underline decoration-purple-500 decoration-2 underline-offset-8' : ''}`}
           >
             Services
@@ -61,7 +63,7 @@ export const Navbar: React.FC = () => {
           <a 
             href="#/about" 
             className={`text-lg font-semibold transition-all hover:text-purple-400 ${
-              isScrolled ? 'text-slate-800' : 'text-gray-100'
+              isDarkText ? 'text-slate-800' : 'text-gray-100'
             } ${isActive('#/about') ? 'text-purple-500 underline decoration-purple-500 decoration-2 underline-offset-8' : ''}`}
           >
             About
@@ -69,7 +71,7 @@ export const Navbar: React.FC = () => {
           <a 
             href="#/work" 
             className={`text-lg font-semibold transition-all hover:text-purple-400 ${
-              isScrolled ? 'text-slate-800' : 'text-gray-100'
+              isDarkText ? 'text-slate-800' : 'text-gray-100'
             } ${isActive('#/work') ? 'text-purple-500 underline decoration-purple-500 decoration-2 underline-offset-8' : ''}`}
           >
             Our Work
@@ -85,7 +87,7 @@ export const Navbar: React.FC = () => {
         {/* Mobile Menu Toggle Button */}
         <button 
           className={`md:hidden p-2 rounded-lg transition-colors ${
-            isScrolled || ['#/services', '#/about', '#/proposal', '#/work', '#/packages', '#/digital-marketing', '#/web-solutions', '#/branding', '#/influence-marketing'].includes(currentHash) || currentHash.startsWith('#/package-unlock/') 
+            isDarkText 
               ? 'text-slate-800 hover:bg-slate-100' 
               : 'text-white hover:bg-white/10'
           }`}

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ExternalLink, ArrowRight, Layout, Palette, Zap, ShieldCheck } from 'lucide-react';
+import buildexImage from '../assets/projects/buildex.png';
+import buildexLogo from '../assets/projects/buildex_logo.png';
 
 const PROJECTS = [
   {
@@ -7,33 +9,11 @@ const PROJECTS = [
     title: 'BuildexIndia',
     category: 'Full Branding & Marketplace',
     description: 'Engineering India’s premier construction material ecosystem. We developed the complete "BK" identity and a high-performance marketplace enabling thousands of contractors to procure materials and book civil services seamlessly.',
-    image: '/assets/projects/buildex.png',
+    image: buildexImage,
     tags: ['Next.js', 'Brand Identity', 'Marketplace Architecture'],
     metrics: ['40% Increase in Bookings', '150k+ Monthly Visits'],
     color: 'from-orange-500 to-amber-600',
     link: 'https://buildexindia.com/'
-  },
-  {
-    id: 'luxora',
-    title: 'Luxora E-commerce',
-    category: 'Luxury Retail Platform',
-    description: 'Transforming high-end watch retail into a global digital experience. Our work focused on immersive visual storytelling and a frictionless checkout system for high-ticket items.',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=2000',
-    tags: ['React', 'UX Strategy', 'Conversion Optimization'],
-    metrics: ['2.4x Conversion Growth', 'Global Shipping API Integration'],
-    color: 'from-indigo-600 to-purple-700',
-    link: '#'
-  },
-  {
-    id: 'finvertex',
-    title: 'FinVertex App',
-    category: 'FinTech Dashboard',
-    description: 'A sophisticated data visualization layer for enterprise financial management. We simplified complex transaction data into actionable, high-speed insights for CFOs.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2000',
-    tags: ['Data Visualization', 'SaaS', 'Interface Design'],
-    metrics: ['Sub-100ms Data Latency', '85% Task Completion Rate'],
-    color: 'from-cyan-500 to-blue-600',
-    link: '#'
   }
 ];
 
@@ -87,7 +67,14 @@ export const PortfolioPage: React.FC = () => {
                     alt={project.title} 
                     className="w-full h-auto aspect-video object-cover transition-transform duration-2000 group-hover:scale-110" 
                   />
-                  <div className="absolute top-8 left-8 flex gap-3">
+                  {project.id === 'buildex' && (
+                    <div className="absolute inset-0 flex items-center justify-center p-8 pointer-events-none z-10 transition-transform duration-700 group-hover:scale-105">
+                      <div className="bg-white/95 backdrop-blur-md px-10 py-6 rounded-3xl shadow-2xl border border-white/50 flex items-center justify-center shadow-[0_20px_60px_rgba(0,0,0,0.3)] min-w-[250px]">
+                        <img src={buildexLogo} alt="Buildex Logo" className="w-[200px] md:w-[280px] h-auto object-contain" />
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute top-8 left-8 flex gap-3 z-20">
                      {project.tags.map(tag => (
                        <span key={tag} className="px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest text-slate-900 shadow-sm border border-slate-100">
                          {tag}
@@ -145,41 +132,30 @@ export const PortfolioPage: React.FC = () => {
       </section>
 
       {/* Capabilities Section */}
-      <section className="py-32 bg-slate-900 text-white relative overflow-hidden">
-         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-t from-black/50 to-transparent" />
+      <section className="py-32 bg-white text-slate-900 relative overflow-hidden">
          <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-24">
             <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Technical Excellence.</h2>
-            <p className="text-slate-400 text-xl font-light max-w-2xl mx-auto italic">
+            <p className="text-slate-500 text-xl font-light max-w-2xl mx-auto italic">
               "We don't just build websites; we build distribution powerhouses that define industry standards."
             </p>
          </div>
 
          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="p-12 rounded-[3rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-               <Layout className="w-10 h-10 text-cyan-400 mb-8" />
-               <h3 className="text-2xl font-bold mb-4">Marketplace Logic</h3>
-               <p className="text-slate-400 font-light leading-relaxed">Engineered complex category systems and transactional flows for multi-vendor industrial platforms.</p>
+            <div className="p-12 rounded-[3rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl transition-all duration-300">
+               <Layout className="w-10 h-10 text-cyan-500 mb-8" />
+               <h3 className="text-2xl font-bold mb-4 text-slate-900">Marketplace Logic</h3>
+               <p className="text-slate-600 font-light leading-relaxed">Engineered complex category systems and transactional flows for multi-vendor industrial platforms.</p>
             </div>
-            <div className="p-12 rounded-[3rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-               <Palette className="w-10 h-10 text-purple-400 mb-8" />
-               <h3 className="text-2xl font-bold mb-4">Brand Systems</h3>
-               <p className="text-slate-400 font-light leading-relaxed">Developing cohesive visual languages that scale across digital, social, and physical environments.</p>
+            <div className="p-12 rounded-[3rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl transition-all duration-300">
+               <Palette className="w-10 h-10 text-purple-500 mb-8" />
+               <h3 className="text-2xl font-bold mb-4 text-slate-900">Brand Systems</h3>
+               <p className="text-slate-600 font-light leading-relaxed">Developing cohesive visual languages that scale across digital, social, and physical environments.</p>
             </div>
-            <div className="p-12 rounded-[3rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-               <ShieldCheck className="w-10 h-10 text-indigo-400 mb-8" />
-               <h3 className="text-2xl font-bold mb-4">Performance Tech</h3>
-               <p className="text-slate-400 font-light leading-relaxed">Achieving sub-second load times on heavy data-driven dashboards and high-traffic stores.</p>
+            <div className="p-12 rounded-[3rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl transition-all duration-300">
+               <ShieldCheck className="w-10 h-10 text-indigo-500 mb-8" />
+               <h3 className="text-2xl font-bold mb-4 text-slate-900">Performance Tech</h3>
+               <p className="text-slate-600 font-light leading-relaxed">Achieving sub-second load times on heavy data-driven dashboards and high-traffic stores.</p>
             </div>
-         </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-32 text-center">
-         <div className="max-w-4xl mx-auto px-6">
-            <h3 className="text-4xl font-black text-slate-900 mb-8 leading-tight">Ready to add your brand <br />to our <span className="text-purple-600 underline">Success Ledger?</span></h3>
-            <a href="#/proposal" className="px-12 py-6 bg-slate-900 text-white rounded-full font-black text-xl hover:bg-purple-600 transition-all shadow-2xl shadow-slate-200 inline-block">
-               Initialize My Project
-            </a>
          </div>
       </section>
 

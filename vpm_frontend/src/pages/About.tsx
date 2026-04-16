@@ -47,44 +47,43 @@ export const About: React.FC = () => {
     <div className={`bg-white min-h-screen selection:bg-purple-100 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Premium Hero Section */}
       <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden min-h-[85vh] flex items-center">
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <div className={`transition-all duration-1000 transform animate-fade-in-up`}>
-            <span className="inline-flex items-center gap-2 py-2 px-6 rounded-full bg-slate-50 text-slate-900 border border-slate-200 text-sm font-bold tracking-[0.2em] uppercase mb-6 shadow-sm">
-              <Zap className="w-4 h-4 text-purple-600" />
-              The Viral Post Media Story
-            </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
-              Engineering <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-600 via-indigo-600 to-cyan-500">Digital Scale.</span>
-            </h1>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-12">
-            <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <p className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-light italic border-l-4 border-purple-500 pl-8">
-                "We didn’t set out to be just another marketing company. We set out to be the engine that drives high-impact brands toward global dominance."
-              </p>
-              <div className="space-y-6 text-lg text-slate-500 leading-relaxed">
-                <p>
-                  Founded over a decade ago, Viral Post Media (VPM) emerged from a simple observation: most brands struggle not with creativity, but with **distribution**. We realized that in a world of infinite noise, visibility isn't earned—it is engineered.
-                </p>
-                <p>
-                  Today, VPM is a premier Digital Marketing Company that bridges the gap between enterprise-level strategy and high-energy distribution. We own the largest network of audience-centric "Frames" internationally, giving our partners an unfair advantage in the attention economy.
-                </p>
-              </div>
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10 w-full">
+          
+          <div className="text-left space-y-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <div>
+              <span className="inline-flex items-center gap-2 py-2 px-6 rounded-full bg-slate-50 text-slate-900 border border-slate-200 text-sm font-bold tracking-[0.2em] uppercase mb-6 shadow-sm">
+                <Zap className="w-4 h-4 text-purple-600" />
+                The Viral Post Media Story
+              </span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter leading-tight">
+                Engineering <br />
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-600 via-indigo-600 to-cyan-500">Digital Scale.</span>
+              </h1>
             </div>
             
-            <div className="relative animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="absolute -inset-4 bg-linear-to-tr from-purple-500/10 to-transparent rounded-[3rem] blur-2xl" />
-              <img 
-                src={TEAM_IMAGE} 
-                alt="VPM Strategy Session"
-                className="rounded-[2.5rem] shadow-2xl relative z-10 object-cover aspect-4/3"
-              />
-              <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-xl border border-slate-100 z-20">
-                <div className="text-4xl font-black text-slate-900">1.5K+</div>
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-widest leading-none">Partners Worldwide</div>
-              </div>
+            <p className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-light italic border-l-4 border-purple-500 pl-8 hidden lg:block">
+              "We didn’t set out to be just another marketing company. We set out to be the engine that drives high-impact brands toward global dominance."
+            </p>
+            <div className="space-y-6 text-lg text-slate-500 leading-relaxed">
+              <p>
+                Founded over a decade ago, Viral Post Media (VPM) emerged from a simple observation: most brands struggle not with creativity, but with **distribution**. We realized that in a world of infinite noise, visibility isn't earned—it is engineered.
+              </p>
+              <p>
+                Today, VPM is a premier Digital Marketing Company that bridges the gap between enterprise-level strategy and high-energy distribution. We own the largest network of audience-centric "Frames" internationally, giving our partners an unfair advantage in the attention economy.
+              </p>
+            </div>
+          </div>
+          
+          <div className="relative animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+            <div className="absolute -inset-4 bg-linear-to-tr from-purple-500/10 to-transparent rounded-[4rem] blur-3xl -z-10" />
+            <img 
+              src={TEAM_IMAGE} 
+              alt="VPM Strategy Session"
+              className="w-full h-auto rounded-[3.5rem] shadow-2xl border-8 border-white relative z-10 object-cover aspect-4/3 group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl border border-slate-100 z-20">
+              <div className="text-3xl font-black text-slate-900">1.5K+</div>
+              <div className="text-sm font-bold text-slate-400 uppercase tracking-widest leading-none">Partners Worldwide</div>
             </div>
           </div>
         </div>

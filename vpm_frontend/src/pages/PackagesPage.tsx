@@ -100,14 +100,14 @@ export const PackagesPage: React.FC = () => {
     <div className="pt-[110px] md:pt-[130px] min-h-screen bg-white">
       
       {/* Hero Section */}
-      <div className="bg-slate-900 py-16 md:py-24 relative overflow-hidden">
+      <div className="bg-slate-900 py-24 md:py-32 lg:py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] opacity-5 bg-cover bg-center" />
         <div className="absolute inset-0 bg-linear-to-b from-transparent to-slate-900" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tight">
             Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Growth Package</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Transparent features. Premium deliverables. Guaranteed results. Select a package tailored for your exact business scale.
           </p>
         </div>
