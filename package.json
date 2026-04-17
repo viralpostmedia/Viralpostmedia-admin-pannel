@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix vpm_frontend\" \"npm run dev --prefix vpm_backend\"",
-    
-  "build": "cd vpm_backend && npm install && npm install --save-dev @types/node @types/express @types/mongoose @types/cors && npx tsc && cd ../vpm_frontend && npm install && npm run build"
-
+    "build": "cd vpm_backend && npm install && npm install --save-dev @types/node @types/express @types/mongoose @types/cors && npx tsc && cd ../vpm_frontend && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -22,9 +20,15 @@
   },
   "homepage": "https://github.com/viralpostmedia/Viralpostmedia-admin-pannel#readme",
   "dependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.4.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
     "typescript": "^6.0.2"
   }
 }
