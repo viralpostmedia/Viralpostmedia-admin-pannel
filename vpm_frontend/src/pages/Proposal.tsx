@@ -57,7 +57,7 @@ export const Proposal: React.FC = () => {
     setErrors({});
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '' : 'http://localhost:5000');
       await fetch(`${API_URL}/api/forms/proposal`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

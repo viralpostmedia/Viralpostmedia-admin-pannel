@@ -104,7 +104,7 @@ export const PackageUnlockFlow: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '' : 'http://localhost:5000');
       await fetch(`${API_URL}/api/forms/packages`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
