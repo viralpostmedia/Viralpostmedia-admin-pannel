@@ -47,8 +47,8 @@ router.post('/packages', async (req, res) => {
 // 4. Proposal Form
 router.post('/proposal', async (req, res) => {
   try {
-    const { fullName, email, companyName, webUrl, choosePackage, briefVision } = req.body;
-    const newProposal = new ProposalLead({ fullName, email, companyName, webUrl, choosePackage, briefVision });
+    const { fullName, email, phoneNumber, companyName, webUrl, choosePackage, briefVision } = req.body;
+    const newProposal = new ProposalLead({ fullName, email, phoneNumber, companyName, webUrl, choosePackage, briefVision });
     await newProposal.save();
     res.status(201).json({ success: true, message: 'Proposal request saved successfully' });
   } catch (error: any) {

@@ -13,6 +13,8 @@ const PACKAGES = [
 export const Proposal: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,7 +24,7 @@ export const Proposal: React.FC = () => {
     packageChoice: '',
     message: ''
   });
-  const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
+  const [errors, setErrors] = useState<{ email?: string; phone?: string }>({}); 
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
@@ -55,29 +57,41 @@ export const Proposal: React.FC = () => {
       return;
     }
     setErrors({});
+    setSubmitError('');
+    setIsSubmitting(true);
 
     try {
       const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '' : 'http://localhost:5000');
-      await fetch(`${API_URL}/api/forms/proposal`, {
+      const res = await fetch(`${API_URL}/api/forms/proposal`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           fullName: formData.name,
           email: formData.email,
+          phoneNumber: formData.phone,
           companyName: formData.company,
           webUrl: formData.website,
           choosePackage: formData.packageChoice,
           briefVision: formData.message,
         }),
       });
-    } catch {
-      // non-blocking - still show success screen
+      if (!res.ok) {
+        let errMsg = 'Submission failed. Please try again.';
+        try {
+          const errData = await res.json();
+          if (errData.error) errMsg = errData.error;
+        } catch (_) {}
+        throw new Error(errMsg);
+      }
+      setSubmitted(true);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    } catch (err: any) {
+      setSubmitError(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setSubmitted(true);
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 100);
   };
 
   const inputClass = (hasError?: string) =>
@@ -244,11 +258,17 @@ export const Proposal: React.FC = () => {
               </div>
             </div>
 
+            {submitError && (
+              <p className="text-red-500 text-sm font-medium text-center bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                {submitError}
+              </p>
+            )}
             <button
               type="submit"
-              className="w-full py-6 bg-slate-900 text-white rounded-2xl font-black text-lg hover:bg-purple-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group"
+              disabled={isSubmitting}
+              className="w-full py-6 bg-slate-900 text-white rounded-2xl font-black text-lg hover:bg-purple-600 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-wait transition-all shadow-xl flex items-center justify-center gap-3 group"
             >
-              Initialize Proposal
+              {isSubmitting ? 'Submitting...' : 'Initialize Proposal'}
               <Send className="w-5 h-5 group-hover:translate-x-2 group-hover:-translate-y-1 transition-transform" />
             </button>
             <p className="text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest">

@@ -26,10 +26,11 @@ const packageSchema = new mongoose.Schema({
 const proposalSchema = new mongoose.Schema({
   fullName: { type: String, required: true },
   email: { type: String, required: true },
+  phoneNumber: { type: String, required: false },
   companyName: { type: String, required: true },
-  webUrl: { type: String, required: true },
+  webUrl: { type: String, required: false },
   choosePackage: { type: String, required: true },
-  briefVision: { type: String, required: true },
+  briefVision: { type: String, required: false },
 }, { timestamps: true });
 
 export const PopupLead = mongoose.model('PopupLead', popupSchema);
