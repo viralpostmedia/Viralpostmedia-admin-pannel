@@ -28,10 +28,19 @@ export const Contact: React.FC = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      if (!res.ok) throw new Error('Failed to send');
+      if (!res.ok) {
+        let errorMsg = 'Failed to send';
+        try {
+          const errorData = await res.json();
+          if (errorData.error) errorMsg = errorData.error;
+        } catch (e) {
+          // ignore
+        }
+        throw new Error(errorMsg);
+      }
       setSubmitted(true);
-    } catch {
-      setSubmitError('Something went wrong. Please try again.');
+    } catch (err: any) {
+      setSubmitError(err.message || 'Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

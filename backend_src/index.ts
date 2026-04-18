@@ -6,12 +6,20 @@ import formRoutes from './routes/formRoutes';
 
 dotenv.config();
 
-connectDB();
-
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// Ensure database is connected before handling any API routes
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    res.status(500).json({ error: 'Database connection failed' });
+  }
+});
 
 app.use('/api/forms', formRoutes);
 

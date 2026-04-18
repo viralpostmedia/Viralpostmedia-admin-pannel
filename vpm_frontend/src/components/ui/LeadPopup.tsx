@@ -47,14 +47,21 @@ export const LeadPopup: React.FC = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit');
+        let errorMsg = 'Failed to submit';
+        try {
+          const errorData = await response.json();
+          if (errorData.error) errorMsg = errorData.error;
+        } catch (e) {
+          // ignore invalid json from 500 page
+        }
+        throw new Error(errorMsg);
       }
 
       setIsSubmitted(true);
       sessionStorage.setItem(STORAGE_KEY, 'true');
       setTimeout(() => setIsVisible(false), 2500);
-    } catch (err) {
-      setError('Something went wrong. Please try again.');
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
