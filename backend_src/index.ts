@@ -11,6 +11,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log(`[Express] Received ${req.method} ${req.url} (originalUrl: ${req.originalUrl})`);
+  next();
+});
+
 // Ensure database is connected before handling any API routes
 app.use(async (req, res, next) => {
   try {
